@@ -1,7 +1,7 @@
 # Scrap Shell Docs
 Scrap Shell is a very simplistic shell like language used by the ScrapMechanic mod [ScrapComputer](https://steamcommunity.com/sharedfiles/filedetails/?id=2634124102).  
 The ScrapShell interpreter written in Lua can be found [here](https://github.com/RedCubeDev-ByteSpace/ScrapShellLua), and there is a [VScode Extension](https://marketplace.visualstudio.com/items?itemName=RedCubeDev.scrap-shell-language-support) for highlighting available.
-This Website will cover the Scrap Shell scripting language.
+This Website will only cover the Scrap Shell scripting language.
 
 ### Table Of Contents
 - [Input-Output](#input-output)
@@ -14,6 +14,8 @@ This Website will cover the Scrap Shell scripting language.
 - [Variables](#variables)
 - [Goto](#goto)
 - [Subroutines](#subroutines)
+- [If Statements](#if-statements)
+    - [Else Clause](#else-clause)
 - [Stop the Program](#stop-the-program)
 - [Comments](#comments)
 
@@ -170,6 +172,30 @@ die                                ; forcefully stop the program so we dont acci
 :someSub
     print "This will be run second."
 return
+```
+
+# If Statements
+In Scrap Shell, If Statements are just conditional Gotos / Gotosubs.
+To create an If Statement, use the `if` keyword followed by an expression, an operator and a second expression.
+After that you need to supply a label or subroutine to jump to. For a normal goto do `:` followed by a label, for a subroutine do `>` followed by a label.
+
+Allowed operators for an If Statment are: `=`, `!=`, `<`, `>`, `>=`, and `<=`.
+
+Heres are some examples for If Statements:
+```
+if 1 = 1 :somelabel         ; will goto to the given label if 1 = 1
+if "a" != "b" >somesub       ; will run the given subroutine if "a" != "b"
+```
+
+### Else Clause
+You can also add an Else Clause to your If Statement which will be run if the condition isnt true.  
+To add an Else Clause just add an `else` keyword followed by a label or subroutine to the end of your If Statement.
+```
+if 1 > 2 :jumpHere
+    else :jumpHereInstead
+
+if 1 > 2 >runThisSub
+    else >runThisSubInstead
 ```
 
 # Stop the Program
