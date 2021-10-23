@@ -14,6 +14,8 @@ This Website will cover the Scrap Shell scripting language.
 - [Variables](#variables)
 - [Goto](#goto)
 - [Subroutines](#subroutines)
+- [Stop the Program](#stop-the-program)
+- [Comments](#comments)
 
 # Note
 ScrapShell is a loosly typed language, meaning there are no datatypes.  
@@ -143,7 +145,42 @@ print [get "somevar"]
 ```
 
 # Goto
-test2
+Goto is very important in Scrap Shell because its the base of all flow control Scrap Shell has.  
+To use goto, declare a label by using `:` followed by your label name. You can now jump to that label.
+```
+:label
+
+print "this is an infinite loop!"
+
+goto label
+```
+
 
 # Subroutines
-test2
+Subroutines are a kind of fancier version of Goto. They can jump to a label and then return to back where they came from.
+To enter a subroutine you can use the `gotosub` function.
+```
+print "This will be run first."
+
+gotosub someSub                    ; enter subroutine
+print "This will be run last."
+
+die                                ; forcefully stop the program so we dont accidentally run the subroutine again
+
+:someSub
+    print "This will be run second."
+return
+```
+
+# Stop the Program
+To stop the current program you can use the `die` function.
+```
+die
+```
+
+# Comments
+To comment in Scrap Shell you can use the `;` or `#` character.
+```
+; This is a comment!
+# This is a comment as well!
+```
