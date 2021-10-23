@@ -175,13 +175,13 @@ return
 ```
 
 # If Statements
-In Scrap Shell, If Statements are just conditional Gotos / Gotosubs.
-To create an If Statement, use the `if` keyword followed by an expression, an operator and a second expression.
-After that you need to supply a label or subroutine to jump to. For a normal goto do `:` followed by a label, for a subroutine do `>` followed by a label.
+In Scrap Shell, If Statements are just conditional Gotos / Gotosubs.  
+To create an If Statement, use the `if` keyword followed by an expression, an operator and a second expression.  
+After that you need to supply a label or subroutine to jump to. For a normal goto do `:` followed by a label, for a subroutine do `>` followed by a label.  
 
-Allowed operators for an If Statment are: `=`, `!=`, `<`, `>`, `>=`, and `<=`.
+Allowed operators for an If Statment are: `=`, `!=`, `<`, `>`, `>=`, and `<=`.  
 
-Heres are some examples for If Statements:
+Heres are some examples for If Statements:  
 ```
 if 1 = 1 :somelabel         ; will goto to the given label if 1 = 1
 if "a" != "b" >somesub       ; will run the given subroutine if "a" != "b"
