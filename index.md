@@ -4,10 +4,10 @@ The ScrapShell interpreter written in Lua can be found [here](https://github.com
 This Website will cover the Scrap Shell scripting language.
 
 ### Table Of Contents
-- [[#Input-Output]]
-- [[#Expressions and Operations]]
-- [[#Goto]]
-- [[#Subroutines]]
+- [Input-Output](#input-output)
+- [Expressions and Operations](#expressions-and-operations)
+- [#Goto](#goto)
+- [Subroutines](#subroutines)
 
 # Input-Output
 test
