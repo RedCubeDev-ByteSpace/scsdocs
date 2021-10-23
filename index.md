@@ -10,6 +10,8 @@ This Website will cover the Scrap Shell scripting language.
     - [Getting and Setting Cursor Position](#getting-and-setting-cursor-position)
     - [Getting Input from the Console](#getting-input-from-the-console)
 - [Expressions and Operations](#expressions-and-operations)
+    - [Building more complex Expressions](#building-more-complex-expressions)
+- [Variables](#variables)
 - [Goto](#goto)
 - [Subroutines](#subroutines)
 
@@ -80,7 +82,65 @@ print [lastinput]
 ```
 
 # Expressions and Operations
-test2
+In Scrap Shell everything is done using Shell Function, this also applies to expressions.  
+For basic math you can use the functions `add`, `sub`, `mul`, and `div`.
+```
+add 1 2
+sub 4 3
+mul 5 5
+div 4 2
+```
+
+To concatinate two string you can use the `con` function.
+```
+con "this is " "a string"
+```
+
+### Building more complex Expressions
+This is where it gets a bit more interesting.  
+You can feed the output of a function into the input of another using square brackets `[]`. This allows you to create more complex Expressions.
+```
+add 1 [mul 2 3]
+; meaning: 1 + (2 * 3)
+
+div [add 10 15] [mul 3 2]
+; meaning: (10 + 15) / (3 * 2)
+```
+
+# Variables
+In Scrap Shell, Variables can be set using the `set` keyword followed by an identifier, equal sign, and a value.
+```
+set somevar = 10
+```
+
+Instead of an identifier you can also pass in an expression allowing for procedurally created variables.
+```
+set [con "var" "name"] = "value"
+```
+
+To use the value stored in a Variable just use its name as the input.
+```
+set sometext = "this is a string"
+print sometext
+```
+
+This of course also works when feeding functions into eachother.  
+Heres a small program asking for a name and then telling the person hello as an example:
+```
+print "Whats your name?"
+
+input                                ; letting the user type their name
+
+set name = [lastinput]               ; getting what the user typed and storing it in a variable
+print [con [con "Hello " name] "!"]  ; printing "Hello " + name + "!"
+```
+
+You can also get a Variables value by using the `get` function and passing in the variables name as an expression.
+```
+set somevar = "value"
+print somevar          ; both of these will output the same thing.
+print [get "somevar"]
+```
 
 # Goto
 test2
